@@ -17,13 +17,17 @@ module.exports = (sequelize, DataTypes) => {
         otherKey: "roleId"
       });
     }
+    toJSON(){
+      return {...this.get(), id:undefined}
     }
-  }
+    }
+  
   Roles.init({
     name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Roles',
+    tableName: 'roles'
   });
   return Roles;
 };
